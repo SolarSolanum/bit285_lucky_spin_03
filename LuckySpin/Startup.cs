@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using LuckySpin.Models;
 
 namespace LuckySpin
 {
@@ -15,11 +16,11 @@ namespace LuckySpin
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //TODO: enable the full MVC service
-            //services.AddMvc();
+            //: enable the full MVC service
+            services.AddMvc();
             //TODO: (bonus) Register the TextTransformService class
-            
-            
+            services.AddScoped<TextTransformService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,8 +36,8 @@ namespace LuckySpin
                 );
             });
 
-            //TODO: Enable requests for static files, like CSS and images
-            //app.UseStaticFiles();
+            //: Enable requests for static files, like CSS and images
+            app.UseStaticFiles();
         }
     }
 }
